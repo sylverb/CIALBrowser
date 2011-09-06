@@ -26,7 +26,7 @@ What is missing to be closer to Mobile safari application :
 - No proposal when entering an already visited URL in the address text field
 - No support for server with untrusted certificates (need to ask the user what to do and to handle security exceptions)
 - Not showing the title of the page and the lock in case of https pages
-- on iPhone, the bar with locked on the screen (while it is disappearing when loading done in Mobile Safari)
+- on iPhone, the bar is locked on the screen (while it is disappearing when loading done in Mobile Safari)
 
 Contributing
 -------------------------
