@@ -7,6 +7,7 @@ Features
 -------------------------
 
 Here is a list of features supported by CIALBrowser :
+
 - Design close to Mobile Safari (iOS 4.x) native application (for both iPhone and iPad)
 - Bookmark support (support for folders in bookmarks not implemented yet)
 - Mail link support
@@ -17,6 +18,7 @@ What is missing
 -------------------------
 
 What is missing to be closer to Mobile safari application :
+
 - No multi pages support ( https://github.com/100grams/HGPageScrollView could be a good start point to add this)
 - No blue progress bar over url text field
 - No google search text field
