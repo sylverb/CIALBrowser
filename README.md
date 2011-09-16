@@ -33,7 +33,7 @@ Contributing
 
 Forks, patches and other feedback are more than welcome.
 
-Licence
+License
 -------------------------
 Copyright (C) 2011 by CodeIsALie
 
