@@ -139,7 +139,7 @@
     UITableViewCell *cell;
     cell = [tableView dequeueReusableCellWithIdentifier:LabelCellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:LabelCellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LabelCellIdentifier] autorelease];
     }
     
     // Set up the cell...

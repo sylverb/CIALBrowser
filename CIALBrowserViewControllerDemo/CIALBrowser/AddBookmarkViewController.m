@@ -131,7 +131,8 @@
                 {
                     cell = [tableView dequeueReusableCellWithIdentifier:TextFieldCellIdentifier];
                     if (cell == nil) {
-                        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:TextFieldCellIdentifier] autorelease];
+                        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TextFieldCellIdentifier] autorelease];
+
                         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
                         _nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 10, 280, 30)];
@@ -140,7 +141,7 @@
                         _nameTextField.textColor = [UIColor colorWithRed:50.0/255 green:79.0/255 blue:133.0/255 alpha:1.0];
                         _nameTextField.keyboardType = UIKeyboardTypeDefault;
                         _nameTextField.returnKeyType = UIReturnKeyDone;
-                        _nameTextField.backgroundColor = [UIColor whiteColor];
+                        _nameTextField.backgroundColor = [UIColor clearColor];
                         _nameTextField.autocorrectionType = UITextAutocorrectionTypeNo; // no auto correction support
                         _nameTextField.autocapitalizationType = UITextAutocapitalizationTypeNone; // no auto capitalization support
                         _nameTextField.textAlignment = UITextAlignmentLeft;
@@ -159,7 +160,7 @@
                 {
                     cell = [tableView dequeueReusableCellWithIdentifier:UrlCellIdentifier];
                     if (cell == nil) {
-                        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:UrlCellIdentifier] autorelease];
+                        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:UrlCellIdentifier] autorelease];
                         cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     }
                     cell.textLabel.adjustsFontSizeToFitWidth = YES;
