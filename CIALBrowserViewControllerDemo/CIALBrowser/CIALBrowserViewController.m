@@ -670,14 +670,21 @@
         CGPoint point = [gestureRecognizer locationInView:webView];
         
         // convert point from view to HTML coordinate system
-        CGPoint offset  = [webView scrollOffset];
         CGSize viewSize = [webView frame].size;
         CGSize windowSize = [webView windowSize];
         
         CGFloat f = windowSize.width / viewSize.width;
-        point.x = point.x * f + offset.x;
-        point.y = point.y * f + offset.y;
-        
+        if ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 5.) {
+            point.x = point.x * f;
+            point.y = point.y * f;
+        } else {
+            // On iOS 4 and previous, document.elementFromPoint is not taking
+            // offset into account, we have to handle it
+            CGPoint offset = [webView scrollOffset];
+            point.x = point.x * f + offset.x;
+            point.y = point.y * f + offset.y;
+        }
+                
         // Load the JavaScript code from the Resources and inject it into the web page
         NSString *path = [[NSBundle mainBundle] pathForResource:@"JSTools" ofType:@"js"];
         NSString *jsCode = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
@@ -730,7 +737,7 @@
             copyButtonIndex = [_longPressActionSheet addButtonWithTitle:NSLocalizedString(@"Copy",@"")];
             
             if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-                CGPoint touchPosition = [self.view convertPoint:point fromView:webView];
+                CGPoint touchPosition = [gestureRecognizer locationInView:webView];
                 [_longPressActionSheet showFromRect:CGRectMake(touchPosition.x, touchPosition.y, 1, 1)
                                              inView:self.view
                                            animated:YES];
