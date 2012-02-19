@@ -747,7 +747,7 @@
             if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
                 CGPoint touchPosition = [gestureRecognizer locationInView:webView];
                 [_longPressActionSheet showFromRect:CGRectMake(touchPosition.x, touchPosition.y, 1, 1)
-                                             inView:self.view
+                                             inView:webView
                                            animated:YES];
             } else {
                 _longPressActionSheet.cancelButtonIndex = [_longPressActionSheet addButtonWithTitle:NSLocalizedString(@"Cancel",@"")];
