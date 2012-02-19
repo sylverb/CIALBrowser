@@ -624,6 +624,14 @@
     }    
 }
 
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet == _longPressActionSheet)
+    {
+        _longPressActionSheet = nil;
+    }
+}
+
 #pragma mark -
 #pragma mark MFMailComposeViewController delegates
 
