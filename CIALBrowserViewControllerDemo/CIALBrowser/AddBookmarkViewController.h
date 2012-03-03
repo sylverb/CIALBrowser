@@ -12,12 +12,12 @@
 @interface AddBookmarkViewController : UITableViewController<UITextFieldDelegate, UIActionSheetDelegate> {
     id _delegate;
     NSMutableArray *_bookmarksArray;
-    BookmarkObject *_newBookmark;
+    BookmarkObject *_bookmark;
     UITextField *_nameTextField;
 }
 
 @property (retain,nonatomic) id delegate;
-@property (retain,nonatomic) BookmarkObject *newBookmark;
+@property (retain,nonatomic) BookmarkObject *bookmark;
 
 - (void)setBookmark:(NSString *)aName url:(NSURL *)aURL;
 @end

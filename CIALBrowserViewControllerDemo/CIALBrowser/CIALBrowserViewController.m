@@ -380,7 +380,7 @@
     if ([request.URL.absoluteString isEqual:@"about:blank"])
         return NO;
     [req release];
-    req = [request retain];
+    req = (NSMutableURLRequest *)[request retain];
     
     return YES;
 }

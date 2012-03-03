@@ -12,7 +12,7 @@
 
 @synthesize delegate = _delegate;
 @synthesize doneButtonItem = _doneButtonItem;
-@synthesize newBookmark = _newBookmark;
+@synthesize bookmark = _bookmark;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -169,13 +169,13 @@
 }
 
 - (void)setBookmark:(NSString *)aName url:(NSURL *)aURL {
-    _newBookmark = [[BookmarkObject alloc] initWithName:aName andURL:aURL];
+    _bookmark = [[BookmarkObject alloc] initWithName:aName andURL:aURL];
 }
 
 - (void)dealloc {
     self.delegate = nil;
     self.doneButtonItem = nil;
-    self.newBookmark = nil;
+    self.bookmark = nil;
     [_bookmarksArray release];
     [super dealloc];
 }

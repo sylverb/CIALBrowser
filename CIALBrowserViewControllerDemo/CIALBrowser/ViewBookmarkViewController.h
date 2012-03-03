@@ -14,12 +14,12 @@
     id _delegate;
     UIBarButtonItem *_doneButtonItem;
     NSMutableArray *_bookmarksArray;
-    BookmarkObject *_newBookmark;
+    BookmarkObject *_bookmark;
 }
 
 @property (retain,nonatomic) id delegate;
 @property (retain,nonatomic) UIBarButtonItem *doneButtonItem;
-@property (retain,nonatomic) BookmarkObject *newBookmark;
+@property (retain,nonatomic) BookmarkObject *bookmark;
 
 - (void)setBookmark:(NSString *)aName url:(NSURL *)aURL;
 - (void)doneButtonAction;

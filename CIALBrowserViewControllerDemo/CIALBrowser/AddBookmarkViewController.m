@@ -17,7 +17,7 @@
 @implementation AddBookmarkViewController
 
 @synthesize delegate = _delegate;
-@synthesize newBookmark = _newBookmark;
+@synthesize bookmark = _bookmark;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -72,7 +72,7 @@
     BOOL saveURL = YES;
     // Check that the URL is not already in the bookmark list
     for (BookmarkObject * bookmark in _bookmarksArray) {
-        if ([bookmark.url.absoluteString isEqual:_newBookmark.url.absoluteString]) {
+        if ([bookmark.url.absoluteString isEqual:_bookmark.url.absoluteString]) {
             saveURL = NO;
             break;
         }
@@ -80,7 +80,7 @@
     
     // Add the new URL in the list
     if (saveURL) {
-        [_bookmarksArray addObject:_newBookmark];
+        [_bookmarksArray addObject:_bookmark];
         [self.tableView reloadData];
     }
     
@@ -148,7 +148,7 @@
                         _nameTextField.delegate = self;
                         _nameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
                         [_nameTextField setEnabled: YES];
-                        _nameTextField.text = _newBookmark.name;
+                        _nameTextField.text = _bookmark.name;
                         
                         [cell addSubview:_nameTextField];
                         
@@ -167,7 +167,7 @@
                     cell.textLabel.font = [UIFont systemFontOfSize:17.0];
                     cell.textLabel.minimumFontSize = 14.0;
                     cell.textLabel.textColor = [UIColor colorWithRed:165.0/255 green:165.0/255 blue:165.0/255 alpha:1.0];
-                    cell.textLabel.text = [_newBookmark.url absoluteString];
+                    cell.textLabel.text = [_bookmark.url absoluteString];
                     break;
                 }
                 default:
@@ -208,11 +208,11 @@
 }
 
 - (void)setBookmark:(NSString *)aName url:(NSURL *)aURL {
-    _newBookmark = [[BookmarkObject alloc] initWithName:aName andURL:aURL];
+    _bookmark = [[BookmarkObject alloc] initWithName:aName andURL:aURL];
 }
 
 - (void)dealloc {
-    self.newBookmark = nil;
+    self.bookmark = nil;
     [_bookmarksArray release];
     [super dealloc];
 }
