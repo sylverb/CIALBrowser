@@ -7,6 +7,7 @@
 //
 
 #import "ViewBookmarkViewController.h"
+#import "EditBookmarkViewController.h"
 
 @implementation ViewBookmarkViewController
 
@@ -21,6 +22,7 @@
     self.tableView = [[[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain] autorelease];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.allowsSelectionDuringEditing = YES;
     
     // Show the navigation controller
     [self.navigationController setNavigationBarHidden:NO animated:YES];
@@ -153,13 +155,24 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // send url to browser
-    BookmarkObject *bookmark = [_bookmarksArray objectAtIndex:indexPath.row];
-    [_delegate openThisURL:bookmark.url];
-    // save modifications
-    [self saveBookmarks];
-    
-    [_delegate dismissViewBookmMarkViewController:self];
+    if (self.tableView.editing)
+    {
+        // Create view to edit bookmark details
+        EditBookmarkViewController *editBookmarkViewController = [[EditBookmarkViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        [editBookmarkViewController setBookmark:[_bookmarksArray objectAtIndex:indexPath.row]];
+        [self.navigationController pushViewController:editBookmarkViewController animated:YES];
+        [editBookmarkViewController release];
+    }
+    else
+    {
+        // Send url to browser
+        BookmarkObject *bookmark = [_bookmarksArray objectAtIndex:indexPath.row];
+        [_delegate openThisURL:bookmark.url];
+        // save modifications
+        [self saveBookmarks];
+        
+        [_delegate dismissViewBookmMarkViewController:self];
+    }
 }
 
 - (void)saveBookmarks {
