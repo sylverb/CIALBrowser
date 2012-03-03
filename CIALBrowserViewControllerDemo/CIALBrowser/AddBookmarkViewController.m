@@ -66,9 +66,13 @@
     return YES;
 }
 
+#pragma mark -
 #pragma mark Buttons methods
 
 - (void)saveAction {
+    // Force resignFirstResponder for edited textfield
+    [_nameTextField resignFirstResponder];
+    
     BOOL saveURL = YES;
     // Check that the URL is not already in the bookmark list
     for (BookmarkObject * bookmark in _bookmarksArray) {
@@ -80,6 +84,7 @@
     
     // Add the new URL in the list
     if (saveURL) {
+        _bookmark.name = _nameTextField.text;
         [_bookmarksArray addObject:_bookmark];
         [self.tableView reloadData];
     }
