@@ -18,6 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if ([self respondsToSelector:@selector(setContentSizeForViewInPopover:)])
+    {
+        self.contentSizeForViewInPopover = CGSizeMake(320.0, 400.0);
+    }
+    
     // Load custom tableView
     self.tableView = [[[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain] autorelease];
     self.tableView.dataSource = self;

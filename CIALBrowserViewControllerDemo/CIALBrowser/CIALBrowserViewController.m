@@ -462,7 +462,6 @@
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             self.bookmarkPopoverController = [[[UIPopoverController alloc] initWithContentViewController:navController] autorelease];
-            self.bookmarkPopoverController.popoverContentSize = CGSizeMake(320.0, 400.0);
             [self.bookmarkPopoverController presentPopoverFromBarButtonItem:button
                                                    permittedArrowDirections:UIPopoverArrowDirectionDown|UIPopoverArrowDirectionUp
                                                                    animated:YES];
