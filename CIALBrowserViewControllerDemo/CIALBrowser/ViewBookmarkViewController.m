@@ -34,22 +34,33 @@
     
     // Create "Done" button
     self.navigationItem.title = NSLocalizedString(@"Bookmarks",@"");
-    self.doneButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonAction) ] autorelease];
-    self.navigationItem.rightBarButtonItem = _doneButtonItem;
-    
-    // Create toolbar with edit button
-    NSMutableArray *buttons = [NSMutableArray arrayWithCapacity:9];
-    UIBarButtonItem *flexibleSpaceButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                                              target:nil
-                                                                                              action:nil] autorelease];
-    UIBarButtonItem *editButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
-                                                                                        target:self
-                                                                                        action:@selector(editButtonAction)] autorelease];
-    [buttons addObject:editButtonItem];
-    [buttons addObject:flexibleSpaceButtonItem];
-    
-    [self setToolbarItems:buttons];
-    [self.navigationController setToolbarHidden:NO animated:NO];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        UIBarButtonItem *editButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+                                                                                         target:self
+                                                                                         action:@selector(editButtonAction)] autorelease];
+        self.navigationItem.rightBarButtonItem = editButtonItem;
+    }
+    else
+    {
+        // Create "Done" button
+        self.doneButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonAction) ] autorelease];
+        self.navigationItem.rightBarButtonItem = _doneButtonItem;
+        
+        // Create toolbar with edit button
+        NSMutableArray *buttons = [NSMutableArray arrayWithCapacity:9];
+        UIBarButtonItem *flexibleSpaceButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                                                  target:nil
+                                                                                                  action:nil] autorelease];
+        UIBarButtonItem *editButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+                                                                                         target:self
+                                                                                         action:@selector(editButtonAction)] autorelease];
+        [buttons addObject:editButtonItem];
+        [buttons addObject:flexibleSpaceButtonItem];
+        
+        [self setToolbarItems:buttons];
+        [self.navigationController setToolbarHidden:NO animated:NO];
+    }
 
     // get bookmarks from userDefaults
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
@@ -85,40 +96,62 @@
 
 - (void)editButtonAction {
     [self.tableView setEditing:YES animated:YES];
-    // Hide Done button in navigation controller
-    self.navigationItem.rightBarButtonItem = nil;
     
-    // Replace the "Edit" button with a "Done" button
-    NSMutableArray *buttons = [NSMutableArray arrayWithCapacity:9];
-    UIBarButtonItem *flexibleSpaceButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                                              target:nil
-                                                                                              action:nil] autorelease];
-    UIBarButtonItem *doneEditingButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                                     target:self
-                                                                                     action:@selector(doneEditingButtonAction)] autorelease];
-    [buttons addObject:doneEditingButtonItem];
-    [buttons addObject:flexibleSpaceButtonItem];
-    
-    [self setToolbarItems:buttons];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        // Replace the "Edit" button with a "Done" button
+        UIBarButtonItem *doneEditingButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                                                target:self
+                                                                                                action:@selector(doneEditingButtonAction)] autorelease];
+        self.navigationItem.rightBarButtonItem = doneEditingButtonItem;
+    }
+    else
+    {
+        // Hide Done button in navigation controller
+        self.navigationItem.rightBarButtonItem = nil;
+        
+        // Replace the "Edit" button with a "Done" button
+        NSMutableArray *buttons = [NSMutableArray arrayWithCapacity:9];
+        UIBarButtonItem *flexibleSpaceButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                                                  target:nil
+                                                                                                  action:nil] autorelease];
+        UIBarButtonItem *doneEditingButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                                                target:self
+                                                                                                action:@selector(doneEditingButtonAction)] autorelease];
+        [buttons addObject:doneEditingButtonItem];
+        [buttons addObject:flexibleSpaceButtonItem];
+        
+        [self setToolbarItems:buttons];
+    }
 }
 
 - (void)doneEditingButtonAction {
     [self.tableView setEditing:NO animated:YES];
-    // Hide Done button in navigation controller
-    self.navigationItem.rightBarButtonItem = _doneButtonItem;
-    
-    // Replace the "Done" button with an "Edit" button
-    NSMutableArray *buttons = [NSMutableArray arrayWithCapacity:9];
-    UIBarButtonItem *flexibleSpaceButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                                              target:nil
-                                                                                              action:nil] autorelease];
-    UIBarButtonItem *doneEditingButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
-                                                                                            target:self
-                                                                                            action:@selector(editButtonAction)] autorelease];
-    [buttons addObject:doneEditingButtonItem];
-    [buttons addObject:flexibleSpaceButtonItem];
-    
-    [self setToolbarItems:buttons];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        UIBarButtonItem *editButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+                                                                                         target:self
+                                                                                         action:@selector(editButtonAction)] autorelease];
+        self.navigationItem.rightBarButtonItem = editButtonItem;
+    }
+    else
+    {
+        // Hide Done button in navigation controller
+        self.navigationItem.rightBarButtonItem = _doneButtonItem;
+        
+        // Replace the "Done" button with an "Edit" button
+        NSMutableArray *buttons = [NSMutableArray arrayWithCapacity:9];
+        UIBarButtonItem *flexibleSpaceButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                                                  target:nil
+                                                                                                  action:nil] autorelease];
+        UIBarButtonItem *doneEditingButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+                                                                                                target:self
+                                                                                                action:@selector(editButtonAction)] autorelease];
+        [buttons addObject:doneEditingButtonItem];
+        [buttons addObject:flexibleSpaceButtonItem];
+        
+        [self setToolbarItems:buttons];
+    }
 }
 
 #pragma mark -
