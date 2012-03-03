@@ -61,13 +61,10 @@
     }    
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     [self.tableView reloadData];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -152,6 +149,7 @@
     // Set up the cell...
     BookmarkObject *bookmark = [_bookmarksArray objectAtIndex:indexPath.row];
     cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [cell.textLabel setText:bookmark.name];
     cell.imageView.image = [UIImage imageNamed:@"Bookmark.png"];
     cell.imageView.highlightedImage = [UIImage imageNamed:@"BookmarkSelected.png"];
@@ -178,6 +176,15 @@
         
         [_delegate dismissViewBookmMarkViewController:self];
     }
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+	BookmarkObject *bookmarkToMove = [[_bookmarksArray objectAtIndex:sourceIndexPath.row] retain];
+	[_bookmarksArray removeObjectAtIndex:sourceIndexPath.row];
+	[_bookmarksArray insertObject:bookmarkToMove atIndex:destinationIndexPath.row];
+	[bookmarkToMove release];
+    // save modifications
+	[self saveBookmarks];
 }
 
 - (void)saveBookmarks {
