@@ -116,13 +116,7 @@
         locationField.rightViewMode = UITextFieldViewModeUnlessEditing;
 
         UIBarButtonItem *textFieldItem = [[[UIBarButtonItem alloc] initWithCustomView:locationField] autorelease];
- 
-        if (self.isModal) {
-            NSString *closeTitle = NSLocalizedString(@"Close", nil);
-            closeButtonItem = [[UIBarButtonItem alloc] initWithTitle:closeTitle style:UIBarButtonItemStyleBordered target:self action:@selector(dismiss:)];
-            navigationItem.rightBarButtonItem = closeButtonItem;
-        }
-        
+
         [buttons addObject:flexibleSpaceButtonItem];
         [buttons addObject:backButtonItem];
         [buttons addObject:flexibleSpaceButtonItem];
