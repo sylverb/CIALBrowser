@@ -19,6 +19,8 @@
 - (void)goForward:(id)sender;
 - (void)reloadOrStop:(id)sender;
 - (void)loadURL:(NSURL *)url;
+
+- (void)dismiss:(id)sender;
 @end
 
 @implementation CIALBrowserViewController
@@ -26,7 +28,17 @@
 @synthesize bookmarkPopoverController = _bookmarkPopoverController;
 @synthesize addBookmarkPopoverController = _addBookmarkPopoverController;
 @synthesize actionActionSheet = _actionActionSheet;
+@synthesize modal = _modal;
+@synthesize enabledSafari = _enabledSafari;
 
++ (CIALBrowserViewController *)modalBrowserViewControllerWithURL:(NSURL *)url
+{
+    CIALBrowserViewController *controller = [[[self alloc] initWithURL:url] autorelease];
+    controller.modal = YES;
+    return controller;
+}
+
+/* DELETEME: default is nil
 - (id)init {
     self = [super init];
     if (self) {
@@ -35,12 +47,12 @@
     }
     return self;
 }
+*/
 
 - (id)initWithURL:(NSURL *)url  {
     self = [super init];
     if (self) {
-        _urlToLoad = [url copy];
-        req = nil;
+        [self setURL:url];
     }
     return self;
 }
@@ -105,7 +117,7 @@
         locationField.rightViewMode = UITextFieldViewModeUnlessEditing;
 
         UIBarButtonItem *textFieldItem = [[[UIBarButtonItem alloc] initWithCustomView:locationField] autorelease];
-        
+
         [buttons addObject:flexibleSpaceButtonItem];
         [buttons addObject:backButtonItem];
         [buttons addObject:flexibleSpaceButtonItem];
@@ -116,7 +128,15 @@
         [buttons addObject:actionButtonItem];
         [buttons addObject:flexibleSpaceButtonItem];
         [buttons addObject:textFieldItem];
-        [buttons addObject:flexibleSpaceButtonItem];
+
+        if (self.isModal) {
+            NSString *closeTitle = NSLocalizedString(@"Close", nil);
+            closeButtonItem = [[UIBarButtonItem alloc] initWithTitle:closeTitle style:UIBarButtonItemStyleBordered target:self action:@selector(dismiss:)];
+            navigationItem.rightBarButtonItem = closeButtonItem;
+            [buttons addObject:closeButtonItem];
+        } else {
+            [buttons addObject:flexibleSpaceButtonItem];
+        }
         
         [toolBar setItems:buttons];
         [self.view addSubview:toolBar];
@@ -161,6 +181,12 @@
         locationField.rightViewMode = UITextFieldViewModeUnlessEditing;
         
         navigationItem.titleView = locationField;
+        
+        if (self.isModal) {
+            NSString *closeTitle = NSLocalizedString(@"Close", nil);
+            closeButtonItem = [[UIBarButtonItem alloc] initWithTitle:closeTitle style:UIBarButtonItemStyleBordered target:self action:@selector(dismiss:)];
+            navigationItem.rightBarButtonItem = closeButtonItem;
+        }
         
         navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
         navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -240,6 +266,7 @@
     [bookmarkButton release],bookmarkButton = nil;
     [stopReloadButton release],stopReloadButton = nil;
     [locationField release],locationField = nil;
+    [closeButtonItem release], closeButtonItem = nil;
     [navigationBar release],navigationBar = nil;
     [_urlToLoad release],_urlToLoad = nil;
     [_urlToHandle release],_urlToHandle = nil;
@@ -282,16 +309,18 @@
     
     [self updateLoadingStatus];
     
-    [locationField becomeFirstResponder];
+    if (_urlToLoad) {
+        [self loadURL:_urlToLoad];
+    } else {
+        [locationField becomeFirstResponder];
+    }
 }
 
 #pragma mark -
 
 - (void)loadURL:(NSURL *)url {
     if (!webView) {
-        id old = _urlToLoad;
-        _urlToLoad = [url retain];
-        [old release];
+        [self setURL:url];
         return;
     }
     
@@ -330,6 +359,18 @@
 
 #pragma mark -
 #pragma mark UITextField delegate
+
+- (void)setURL:(NSURL *)url
+{
+    NSString *urlString = url.absoluteString;
+    if ([urlString length]) {
+        if (!url.scheme.length) {
+            url = [NSURL URLWithString:[@"http://" stringByAppendingString:urlString]];
+        }
+        [_urlToLoad release];
+        _urlToLoad = [url copy];
+    }
+}
 
 - (BOOL) textFieldShouldReturn:(UITextField *) textField {
     NSURL *url = [NSURL URLWithString:locationField.text];
@@ -428,6 +469,14 @@
     [self performSelector:@selector(updateLoadingStatus) withObject:nil afterDelay:1.];
 }
 
+#pragma mark actions -
+
+- (void)dismiss:(id)sender
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+
 #pragma mark -
 #pragma mark UIBarButtonItem functions
 
@@ -523,6 +572,13 @@
         copyButtonIndex = -1;
         openLinkButtonIndex = -1;
         addBookmarkButtonIndex = [self.actionActionSheet addButtonWithTitle:NSLocalizedString(@"Add bookmark",@"")];
+        
+        if (self.enabledSafari) {
+            openWithSafariIndex = [self.actionActionSheet addButtonWithTitle:NSLocalizedString(@"Open with Safari",@"")];
+        } else {
+            openWithSafariIndex = -1;
+        }
+        
         if ([MFMailComposeViewController canSendMail]) {
             sendUrlButtonIndex = [self.actionActionSheet addButtonWithTitle:NSLocalizedString(@"Mail Link to this Page",@"")];
         }
@@ -574,6 +630,8 @@
         _urlToHandle = nil;
     } else if (addBookmarkButtonIndex == buttonIndex) {
         [self addBookmark];
+    } else if (openWithSafariIndex == buttonIndex) {
+        [[UIApplication sharedApplication] openURL:self.url];
     } else if (sendUrlButtonIndex == buttonIndex) {
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
         [mailViewController setSubject:[webView stringByEvaluatingJavaScriptFromString:@"document.title"]];

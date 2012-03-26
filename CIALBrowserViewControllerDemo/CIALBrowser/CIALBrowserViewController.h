@@ -20,6 +20,7 @@
     UIButton *stopReloadButton;
     UIButton *bookmarkButton;
     UINavigationItem *navigationItem;
+    UIBarButtonItem *closeButtonItem;
     UIBarButtonItem *doneButtonItem;
     UITextField *locationField;
     UIWebView *webView;
@@ -40,16 +41,21 @@
     NSInteger addBookmarkButtonIndex;
     NSInteger sendUrlButtonIndex;
     NSInteger printButtonIndex;
+    NSInteger openWithSafariIndex;
     
     UIPrintInteractionController *printInteraction;
     
     NSMutableURLRequest* req;
 }
 
++ (CIALBrowserViewController *)modalBrowserViewControllerWithURL:(NSURL *)url;
+
 @property (nonatomic, retain, setter=loadURL:) NSURL *url;
 @property (nonatomic, retain) UIPopoverController *bookmarkPopoverController;
 @property (nonatomic, retain) UIPopoverController *addBookmarkPopoverController;
 @property (nonatomic, retain) UIActionSheet *actionActionSheet;
+@property (getter = isModal) BOOL modal;
+@property BOOL enabledSafari;
 
 - (id)initWithURL:(NSURL *)url;
 
@@ -57,4 +63,5 @@
 
 - (void)dismissViewBookmMarkViewController:(ViewBookmarkViewController *)viewController;
 - (void)dismissAddBookmMarkViewController:(AddBookmarkViewController *)viewController;
+
 @end
