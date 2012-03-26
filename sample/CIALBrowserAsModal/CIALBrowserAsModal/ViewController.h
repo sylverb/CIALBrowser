@@ -11,6 +11,7 @@
 @interface ViewController : UIViewController
 
 @property (retain, nonatomic) IBOutlet UITextField *urlTextField;
+@property (retain, nonatomic) IBOutlet UISwitch *enabeldSafariSwitch;
 
 - (IBAction)open:(id)sender;
 

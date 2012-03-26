@@ -15,6 +15,7 @@
 
 @implementation ViewController
 @synthesize urlTextField;
+@synthesize enabeldSafariSwitch;
 
 - (void)viewDidLoad
 {
@@ -25,6 +26,7 @@
 - (void)viewDidUnload
 {
     [self setUrlTextField:nil];
+    [self setEnabeldSafariSwitch:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -38,11 +40,13 @@
 {
     NSURL *url = [NSURL URLWithString:self.urlTextField.text];
     CIALBrowserViewController *controller = [CIALBrowserViewController modalBrowserViewControllerWithURL:url];
+    controller.enabledSafari = self.enabeldSafariSwitch.on;
     [self presentModalViewController:controller animated:YES];
 }
 
 - (void)dealloc {
     [urlTextField release];
+    [enabeldSafariSwitch release];
     [super dealloc];
 }
 @end

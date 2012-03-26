@@ -41,6 +41,7 @@
     NSInteger addBookmarkButtonIndex;
     NSInteger sendUrlButtonIndex;
     NSInteger printButtonIndex;
+    NSInteger openWithSafariIndex;
     
     UIPrintInteractionController *printInteraction;
     
@@ -54,6 +55,7 @@
 @property (nonatomic, retain) UIPopoverController *addBookmarkPopoverController;
 @property (nonatomic, retain) UIActionSheet *actionActionSheet;
 @property (getter = isModal) BOOL modal;
+@property BOOL enabledSafari;
 
 - (id)initWithURL:(NSURL *)url;
 

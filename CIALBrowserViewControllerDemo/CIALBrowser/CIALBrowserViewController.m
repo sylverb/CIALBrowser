@@ -29,6 +29,7 @@
 @synthesize addBookmarkPopoverController = _addBookmarkPopoverController;
 @synthesize actionActionSheet = _actionActionSheet;
 @synthesize modal = _modal;
+@synthesize enabledSafari = _enabledSafari;
 
 + (CIALBrowserViewController *)modalBrowserViewControllerWithURL:(NSURL *)url
 {
@@ -571,6 +572,13 @@
         copyButtonIndex = -1;
         openLinkButtonIndex = -1;
         addBookmarkButtonIndex = [self.actionActionSheet addButtonWithTitle:NSLocalizedString(@"Add bookmark",@"")];
+        
+        if (self.enabledSafari) {
+            openWithSafariIndex = [self.actionActionSheet addButtonWithTitle:NSLocalizedString(@"Open with Safari",@"")];
+        } else {
+            openWithSafariIndex = -1;
+        }
+        
         if ([MFMailComposeViewController canSendMail]) {
             sendUrlButtonIndex = [self.actionActionSheet addButtonWithTitle:NSLocalizedString(@"Mail Link to this Page",@"")];
         }
@@ -622,6 +630,8 @@
         _urlToHandle = nil;
     } else if (addBookmarkButtonIndex == buttonIndex) {
         [self addBookmark];
+    } else if (openWithSafariIndex == buttonIndex) {
+        [[UIApplication sharedApplication] openURL:self.url];
     } else if (sendUrlButtonIndex == buttonIndex) {
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
         [mailViewController setSubject:[webView stringByEvaluatingJavaScriptFromString:@"document.title"]];
