@@ -76,11 +76,11 @@
         UIBarButtonItem *flexibleSpaceButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                                                   target:nil
                                                                                                   action:nil] autorelease];
-        backButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"browserBack.png"]
+        backButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"CIALBrowser.bundle/images/browserBack.png"]
                                                            style:UIBarButtonItemStylePlain
                                                           target:self
                                                           action:@selector(goBack:)] autorelease];
-        forwardButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"browserForward.png"]
+        forwardButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"CIALBrowser.bundle/images/browserForward.png"]
                                                               style:UIBarButtonItemStylePlain
                                                              target:self
                                                              action:@selector(goForward:)] autorelease];
@@ -109,8 +109,8 @@
         // reloadButton
         stopReloadButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         stopReloadButton.bounds = CGRectMake(0, 0, 26, 30);
-        [stopReloadButton setImage:[UIImage imageNamed:@"AddressViewReload.png"] forState:UIControlStateNormal];
-        [stopReloadButton setImage:[UIImage imageNamed:@"AddressViewReload.png"] forState:UIControlStateHighlighted];
+        [stopReloadButton setImage:[UIImage imageNamed:@"CIALBrowser.bundle/images/AddressViewReload.png"] forState:UIControlStateNormal];
+        [stopReloadButton setImage:[UIImage imageNamed:@"CIALBrowser.bundle/images/AddressViewReload.png"] forState:UIControlStateHighlighted];
         stopReloadButton.showsTouchWhenHighlighted = NO;
         [stopReloadButton addTarget:self action:@selector(reloadOrStop:) forControlEvents:UIControlEventTouchUpInside];
         locationField.rightView = stopReloadButton;
@@ -173,8 +173,8 @@
         // reloadButton
         stopReloadButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         stopReloadButton.bounds = CGRectMake(0, 0, 26, 30);
-        [stopReloadButton setImage:[UIImage imageNamed:@"AddressViewReload.png"] forState:UIControlStateNormal];
-        [stopReloadButton setImage:[UIImage imageNamed:@"AddressViewReload.png"] forState:UIControlStateHighlighted];
+        [stopReloadButton setImage:[UIImage imageNamed:@"CIALBrowser.bundle/images/AddressViewReload.png"] forState:UIControlStateNormal];
+        [stopReloadButton setImage:[UIImage imageNamed:@"CIALBrowser.bundle/images/AddressViewReload.png"] forState:UIControlStateHighlighted];
         stopReloadButton.showsTouchWhenHighlighted = NO;
         [stopReloadButton addTarget:self action:@selector(reloadOrStop:) forControlEvents:UIControlEventTouchUpInside];
         locationField.rightView = stopReloadButton;
@@ -209,11 +209,11 @@
         UIBarButtonItem *flexibleSpaceButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                                                   target:nil
                                                                                                   action:nil] autorelease];
-        backButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"browserBack.png"]
+        backButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"CIALBrowser.bundle/images/browserBack.png"]
                                                            style:UIBarButtonItemStylePlain
                                                           target:self
                                                           action:@selector(goBack:)] autorelease];
-        forwardButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"browserForward.png"]
+        forwardButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"CIALBrowser.bundle/images/browserForward.png"]
                                                               style:UIBarButtonItemStylePlain
                                                              target:self
                                                              action:@selector(goForward:)] autorelease];
@@ -398,11 +398,11 @@
 - (void) updateLoadingStatus {
     UIImage *image = nil;
     if (webView.loading) {
-        image = [UIImage imageNamed:@"AddressViewStop.png"];
+        image = [UIImage imageNamed:@"CIALBrowser.bundle/images/AddressViewStop.png"];
         
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     } else {
-        image = [UIImage imageNamed:@"AddressViewReload.png"];
+        image = [UIImage imageNamed:@"CIALBrowser.bundle/images/AddressViewReload.png"];
         
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     }
@@ -751,7 +751,9 @@
         }
                 
         // Load the JavaScript code from the Resources and inject it into the web page
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"JSTools" ofType:@"js"];
+        NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"CIALBrowser" ofType:@"bundle"]];
+
+        NSString *path = [bundle pathForResource:@"JSTools" ofType:@"js"];
         NSString *jsCode = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
         [webView stringByEvaluatingJavaScriptFromString: jsCode];
         

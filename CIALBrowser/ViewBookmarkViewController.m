@@ -184,8 +184,8 @@
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [cell.textLabel setText:bookmark.name];
-    cell.imageView.image = [UIImage imageNamed:@"Bookmark.png"];
-    cell.imageView.highlightedImage = [UIImage imageNamed:@"BookmarkSelected.png"];
+    cell.imageView.image = [UIImage imageNamed:@"CIALBrowser.bundle/images/Bookmark.png"];
+    cell.imageView.highlightedImage = [UIImage imageNamed:@"CIALBrowser.bundle/images/BookmarkSelected.png"];
     
     return cell;
 }
