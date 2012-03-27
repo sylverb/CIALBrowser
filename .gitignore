@@ -1,7 +1,7 @@
 build
 .DS_Store
-CIALBrowserViewControllerDemo.xcodeproj/*.pbxuser
-CIALBrowserViewControllerDemo.xcodeproj/*.perspectivev3
-CIALBrowserViewControllerDemo.xcodeproj/*.mode1v3
-CIALBrowserViewControllerDemo.xcodeproj/project.xcworkspace
-CIALBrowserViewControllerDemo.xcodeproj/xcuserdata
+*.pbxuser
+*.perspectivev3
+*.mode1v3
+project.xcworkspace
+xcuserdata
