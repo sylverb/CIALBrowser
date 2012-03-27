@@ -41,7 +41,7 @@
     NSInteger addBookmarkButtonIndex;
     NSInteger sendUrlButtonIndex;
     NSInteger printButtonIndex;
-    NSInteger openWithSafariIndex;
+    NSInteger openWithSafariButtonIndex;
     
     UIPrintInteractionController *printInteraction;
     

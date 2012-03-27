@@ -574,9 +574,9 @@
         addBookmarkButtonIndex = [self.actionActionSheet addButtonWithTitle:NSLocalizedString(@"Add bookmark",@"")];
         
         if (self.enabledSafari) {
-            openWithSafariIndex = [self.actionActionSheet addButtonWithTitle:NSLocalizedString(@"Open with Safari",@"")];
+            openWithSafariButtonIndex = [self.actionActionSheet addButtonWithTitle:NSLocalizedString(@"Open with Safari",@"")];
         } else {
-            openWithSafariIndex = -1;
+            openWithSafariButtonIndex = -1;
         }
         
         if ([MFMailComposeViewController canSendMail]) {
@@ -630,7 +630,7 @@
         _urlToHandle = nil;
     } else if (addBookmarkButtonIndex == buttonIndex) {
         [self addBookmark];
-    } else if (openWithSafariIndex == buttonIndex) {
+    } else if (openWithSafariButtonIndex == buttonIndex) {
         [[UIApplication sharedApplication] openURL:self.url];
     } else if (sendUrlButtonIndex == buttonIndex) {
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
