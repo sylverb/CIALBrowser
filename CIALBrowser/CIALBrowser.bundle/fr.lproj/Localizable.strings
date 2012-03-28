@@ -1,0 +1,18 @@
+/* Browser */
+"OK" = "OK";
+"Cancel" = "Annuler";
+"Close" = "Fermer";
+"Error" = "Erreur";
+"Add bookmark" = "Ajouter un signet";
+"Open with Safari" = "Ouvrir avec Safari";
+"Mail Link to this Page" = "Envoyer cette adresse URL";
+"Print" = "Imprimer";
+"Add as Homepage" = "Ajouter comme page d'accueil";
+"Open" = "Ouvrir";
+"Copy" = "Copier";
+"Failed sending email, please try again..." = "Echec de l'envoi de l'email, veuillez recommencer...";
+
+/* Bookmarks */
+"Bookmarks" = "Signets";
+"Add Bookmark" = "Ajouter un signet";
+"Edit Bookmark" = "Modifier le signet";

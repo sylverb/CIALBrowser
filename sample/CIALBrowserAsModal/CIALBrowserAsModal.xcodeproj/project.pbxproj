@@ -25,6 +25,9 @@
 		4674545F1517710800638AEC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4674545E1517710800638AEC /* MessageUI.framework */; };
 		467454621517793C00638AEC /* ViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 467454601517793C00638AEC /* ViewController_ipad.xib */; };
 		F99D7ADF15225F7C00E73F4E /* CIALBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F99D7ADE15225F7C00E73F4E /* CIALBrowser.bundle */; };
+		F99D7AF21522731D00E73F4E /* CIALBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = F99D7AF01522731D00E73F4E /* CIALBrowser.m */; };
+		F9D1D38A1523AEEC00DCF976 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9D1D3881523AEEC00DCF976 /* Localizable.strings */; };
+		F9D1D38D1523AEFD00DCF976 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9D1D3881523AEEC00DCF976 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +61,10 @@
 		4674545E1517710800638AEC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		467454611517793C00638AEC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CIALBrowserAsModal/en.lproj/ViewController_ipad.xib; sourceTree = SOURCE_ROOT; };
 		F99D7ADE15225F7C00E73F4E /* CIALBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CIALBrowser.bundle; sourceTree = "<group>"; };
+		F99D7AF01522731D00E73F4E /* CIALBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIALBrowser.m; sourceTree = "<group>"; };
+		F99D7AF11522731D00E73F4E /* CIALBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIALBrowser.h; sourceTree = "<group>"; };
+		F9D1D3891523AEEC00DCF976 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F9D1D38C1523AEFD00DCF976 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +85,8 @@
 		46031D811520BC8100DB9AF7 /* CIALBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				F99D7AF11522731D00E73F4E /* CIALBrowser.h */,
+				F99D7AF01522731D00E73F4E /* CIALBrowser.m */,
 				F99D7ADE15225F7C00E73F4E /* CIALBrowser.bundle */,
 				46031D821520BC8100DB9AF7 /* AddBookmarkViewController.h */,
 				46031D831520BC8100DB9AF7 /* AddBookmarkViewController.m */,
@@ -144,6 +153,7 @@
 		4674540B15176EEC00638AEC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F9D1D3881523AEEC00DCF976 /* Localizable.strings */,
 				4674540C15176EEC00638AEC /* CIALBrowserAsModal-Info.plist */,
 				4674540D15176EEC00638AEC /* InfoPlist.strings */,
 				4674541015176EEC00638AEC /* main.m */,
@@ -187,6 +197,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				fr,
 			);
 			mainGroup = 467453F515176EEB00638AEC;
 			productRefGroup = 4674540115176EEC00638AEC /* Products */;
@@ -207,6 +218,8 @@
 				4674541B15176EEC00638AEC /* ViewController.xib in Resources */,
 				467454621517793C00638AEC /* ViewController_ipad.xib in Resources */,
 				F99D7ADF15225F7C00E73F4E /* CIALBrowser.bundle in Resources */,
+				F9D1D38A1523AEEC00DCF976 /* Localizable.strings in Resources */,
+				F9D1D38D1523AEFD00DCF976 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +240,7 @@
 				46031DBC1520BC8100DB9AF7 /* UIWebViewAdditions.m in Sources */,
 				46031DBD1520BC8100DB9AF7 /* UnpreventableUILongPressGestureRecognizer.m in Sources */,
 				46031DBE1520BC8100DB9AF7 /* ViewBookmarkViewController.m in Sources */,
+				F99D7AF21522731D00E73F4E /* CIALBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +270,15 @@
 			);
 			name = ViewController_ipad.xib;
 			path = ../../../CIALBrowserViewControllerDemo/CIALBrowser;
+			sourceTree = "<group>";
+		};
+		F9D1D3881523AEEC00DCF976 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F9D1D3891523AEEC00DCF976 /* en */,
+				F9D1D38C1523AEFD00DCF976 /* fr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

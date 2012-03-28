@@ -6,6 +6,7 @@
 //  Copyright 2012 CodeIsALie. All rights reserved.
 //
 
+#import "CIALBrowser.h"
 #import "EditBookmarkViewController.h"
 
 @interface EditBookmarkViewController ()
@@ -35,7 +36,7 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     // Create "Cancel" and "Save" buttons
-    self.navigationItem.title = NSLocalizedString(@"Edit Bookmark",@"");
+    self.navigationItem.title = CIALBrowserLocalizedString(@"Edit Bookmark",@"");
 }
 
 - (void)viewDidAppear:(BOOL)animated {

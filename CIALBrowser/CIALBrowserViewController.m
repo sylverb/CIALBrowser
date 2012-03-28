@@ -6,6 +6,7 @@
 //  Copyright 2011 CodeIsALie. All rights reserved.
 //
 
+#import "CIALBrowser.h"
 #import "CIALBrowserViewController.h"
 #import "UIWebViewAdditions.h"
 #import "UnpreventableUILongPressGestureRecognizer.h"
@@ -130,7 +131,7 @@
         [buttons addObject:textFieldItem];
 
         if (self.isModal) {
-            NSString *closeTitle = NSLocalizedString(@"Close", nil);
+            NSString *closeTitle = CIALBrowserLocalizedString(@"Close", nil);
             closeButtonItem = [[UIBarButtonItem alloc] initWithTitle:closeTitle style:UIBarButtonItemStyleBordered target:self action:@selector(dismiss:)];
             navigationItem.rightBarButtonItem = closeButtonItem;
             [buttons addObject:closeButtonItem];
@@ -183,7 +184,7 @@
         navigationItem.titleView = locationField;
         
         if (self.isModal) {
-            NSString *closeTitle = NSLocalizedString(@"Close", nil);
+            NSString *closeTitle = CIALBrowserLocalizedString(@"Close", nil);
             closeButtonItem = [[UIBarButtonItem alloc] initWithTitle:closeTitle style:UIBarButtonItemStyleBordered target:self action:@selector(dismiss:)];
             navigationItem.rightBarButtonItem = closeButtonItem;
         }
@@ -451,10 +452,10 @@
         }
         default:
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error",@"") 
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:CIALBrowserLocalizedString(@"Error",@"") 
                                                             message:[error localizedDescription]
                                                            delegate:nil
-                                                  cancelButtonTitle:NSLocalizedString(@"OK",@"")
+                                                  cancelButtonTitle:CIALBrowserLocalizedString(@"OK",@"")
                                                   otherButtonTitles:nil];
             [alert show];    
             [alert release];
@@ -571,21 +572,21 @@
         
         copyButtonIndex = -1;
         openLinkButtonIndex = -1;
-        addBookmarkButtonIndex = [self.actionActionSheet addButtonWithTitle:NSLocalizedString(@"Add bookmark",@"")];
+        addBookmarkButtonIndex = [self.actionActionSheet addButtonWithTitle:CIALBrowserLocalizedString(@"Add bookmark",nil)];
         
         if (self.enabledSafari) {
-            openWithSafariButtonIndex = [self.actionActionSheet addButtonWithTitle:NSLocalizedString(@"Open with Safari",@"")];
+            openWithSafariButtonIndex = [self.actionActionSheet addButtonWithTitle:CIALBrowserLocalizedString(@"Open with Safari",@"")];
         } else {
             openWithSafariButtonIndex = -1;
         }
         
         if ([MFMailComposeViewController canSendMail]) {
-            sendUrlButtonIndex = [self.actionActionSheet addButtonWithTitle:NSLocalizedString(@"Mail Link to this Page",@"")];
+            sendUrlButtonIndex = [self.actionActionSheet addButtonWithTitle:CIALBrowserLocalizedString(@"Mail Link to this Page",@"")];
         }
         
         Class printInteractionController = NSClassFromString(@"UIPrintInteractionController");
         if ((printInteractionController != nil) && [printInteractionController isPrintingAvailable]) {
-            printButtonIndex = [self.actionActionSheet addButtonWithTitle:NSLocalizedString(@"Print",@"")];
+            printButtonIndex = [self.actionActionSheet addButtonWithTitle:CIALBrowserLocalizedString(@"Print",@"")];
         } else {
             printButtonIndex = -1;
         }
@@ -593,7 +594,7 @@
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             self.actionActionSheet.cancelButtonIndex = -1;
         } else {
-            self.actionActionSheet.cancelButtonIndex = [_actionActionSheet addButtonWithTitle:NSLocalizedString(@"Cancel",@"")];
+            self.actionActionSheet.cancelButtonIndex = [_actionActionSheet addButtonWithTitle:CIALBrowserLocalizedString(@"Cancel",@"")];
         }
     }
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -703,7 +704,7 @@
         case MFMailComposeResultSent:
             break;
         case MFMailComposeResultFailed:
-            mailError = NSLocalizedString(@"Failed sending email, please try again...",@"");
+            mailError = CIALBrowserLocalizedString(@"Failed sending email, please try again...",@"");
             break;
         default:
             break;
@@ -800,8 +801,8 @@
                                                        otherButtonTitles:nil];
             _longPressActionSheet.actionSheetStyle = UIActionSheetStyleDefault;
             
-            openLinkButtonIndex = [_longPressActionSheet addButtonWithTitle:NSLocalizedString(@"Open",@"")];
-            copyButtonIndex = [_longPressActionSheet addButtonWithTitle:NSLocalizedString(@"Copy",@"")];
+            openLinkButtonIndex = [_longPressActionSheet addButtonWithTitle:CIALBrowserLocalizedString(@"Open",@"")];
+            copyButtonIndex = [_longPressActionSheet addButtonWithTitle:CIALBrowserLocalizedString(@"Copy",@"")];
             
             if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
                 CGPoint touchPosition = [gestureRecognizer locationInView:webView];
@@ -809,7 +810,7 @@
                                              inView:webView
                                            animated:YES];
             } else {
-                _longPressActionSheet.cancelButtonIndex = [_longPressActionSheet addButtonWithTitle:NSLocalizedString(@"Cancel",@"")];
+                _longPressActionSheet.cancelButtonIndex = [_longPressActionSheet addButtonWithTitle:CIALBrowserLocalizedString(@"Cancel",@"")];
                 [_longPressActionSheet showInView:self.view];
             }
             [_longPressActionSheet release];

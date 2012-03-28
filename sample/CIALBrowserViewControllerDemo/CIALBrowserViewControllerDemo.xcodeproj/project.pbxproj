@@ -17,6 +17,9 @@
 		F945A5541412C2BC0058C6A8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945A5531412C2BC0058C6A8 /* MessageUI.framework */; };
 		F98C951814109AF700C9A937 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F98C951714109AF700C9A937 /* CoreGraphics.framework */; };
 		F99D7AE7152263ED00E73F4E /* CIALBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F99D7AE6152263ED00E73F4E /* CIALBrowser.bundle */; };
+		F99D7AFA1522779700E73F4E /* CIALBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = F99D7AF91522779700E73F4E /* CIALBrowser.m */; };
+		F99D7B1C1522DCC600E73F4E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F99D7B1A1522DCC600E73F4E /* Localizable.strings */; };
+		F99D7B1E1522DCD200E73F4E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F99D7B1A1522DCC600E73F4E /* Localizable.strings */; };
 		F9E3C5D11410965500D44684 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E3C5D01410965500D44684 /* UIKit.framework */; };
 		F9E3C5D31410965500D44684 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E3C5D21410965500D44684 /* Foundation.framework */; };
 		F9E3C5D91410965500D44684 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9E3C5D71410965500D44684 /* InfoPlist.strings */; };
@@ -42,6 +45,10 @@
 		F945A5531412C2BC0058C6A8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		F98C951714109AF700C9A937 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F99D7AE6152263ED00E73F4E /* CIALBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CIALBrowser.bundle; sourceTree = "<group>"; };
+		F99D7AF81522779700E73F4E /* CIALBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIALBrowser.h; sourceTree = "<group>"; };
+		F99D7AF91522779700E73F4E /* CIALBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIALBrowser.m; sourceTree = "<group>"; };
+		F99D7B1B1522DCC600E73F4E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../../CIALBrowserAsModal/CIALBrowserAsModal/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F99D7B1D1522DCD200E73F4E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = ../../CIALBrowserAsModal/CIALBrowserAsModal/fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F9E3C5CC1410965500D44684 /* CIALBrowserViewControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CIALBrowserViewControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E3C5D01410965500D44684 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F9E3C5D21410965500D44684 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -72,6 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				F99D7AE6152263ED00E73F4E /* CIALBrowser.bundle */,
+				F99D7AF81522779700E73F4E /* CIALBrowser.h */,
+				F99D7AF91522779700E73F4E /* CIALBrowser.m */,
 				46031DC51520BCFC00DB9AF7 /* AddBookmarkViewController.h */,
 				46031DC61520BCFC00DB9AF7 /* AddBookmarkViewController.m */,
 				46031DC71520BCFC00DB9AF7 /* BookmarkObject.h */,
@@ -133,6 +142,7 @@
 		F9E3C5D51410965500D44684 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F99D7B1A1522DCC600E73F4E /* Localizable.strings */,
 				F9E3C5D61410965500D44684 /* CIALBrowserViewControllerDemo-Info.plist */,
 				F9E3C5D71410965500D44684 /* InfoPlist.strings */,
 				F9E3C5DA1410965500D44684 /* main.m */,
@@ -175,6 +185,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				fr,
 			);
 			mainGroup = F9E3C5C11410965400D44684;
 			productRefGroup = F9E3C5CD1410965500D44684 /* Products */;
@@ -193,6 +204,8 @@
 			files = (
 				F9E3C5D91410965500D44684 /* InfoPlist.strings in Resources */,
 				F99D7AE7152263ED00E73F4E /* CIALBrowser.bundle in Resources */,
+				F99D7B1C1522DCC600E73F4E /* Localizable.strings in Resources */,
+				F99D7B1E1522DCD200E73F4E /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,12 +225,22 @@
 				46031DFF1520BCFC00DB9AF7 /* UIWebViewAdditions.m in Sources */,
 				46031E001520BCFC00DB9AF7 /* UnpreventableUILongPressGestureRecognizer.m in Sources */,
 				46031E011520BCFC00DB9AF7 /* ViewBookmarkViewController.m in Sources */,
+				F99D7AFA1522779700E73F4E /* CIALBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		F99D7B1A1522DCC600E73F4E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F99D7B1B1522DCC600E73F4E /* en */,
+				F99D7B1D1522DCD200E73F4E /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		F9E3C5D71410965500D44684 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

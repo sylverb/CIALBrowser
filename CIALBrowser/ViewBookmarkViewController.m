@@ -6,6 +6,7 @@
 //  Copyright 2011 CodeIsALie. All rights reserved.
 //
 
+#import "CIALBrowser.h"
 #import "ViewBookmarkViewController.h"
 #import "EditBookmarkViewController.h"
 
@@ -33,7 +34,7 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     // Create "Done" button
-    self.navigationItem.title = NSLocalizedString(@"Bookmarks",@"");
+    self.navigationItem.title = CIALBrowserLocalizedString(@"Bookmarks",@"");
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
         UIBarButtonItem *editButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit

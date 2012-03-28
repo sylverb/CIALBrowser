@@ -1,0 +1,19 @@
+/* Browser */
+"OK" = "OK";
+"Cancel" = "Cancel";
+"Close" = "Close";
+"Error" = "Error";
+"Add bookmark" = "Add bookmark";
+"Open with Safari" = "Open with Safari";
+"Mail Link to this Page" = "Mail Link to this Page";
+"Print" = "Print";
+"Add as Homepage" = "Add as Homepage";
+"Open" = "Open";
+"Copy" = "Copy";
+"Failed sending email, please try again..." = "Failed sending email, please try again...";
+
+/* Bookmarks */
+"Bookmarks" = "Bookmarks";
+"Add Bookmark" = "Add Bookmark";
+"Edit Bookmark" = "Edit Bookmark";
+

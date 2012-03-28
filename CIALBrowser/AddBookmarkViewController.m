@@ -6,6 +6,7 @@
 //  Copyright 2011 CodeIsALie. All rights reserved.
 //
 
+#import "CIALBrowser.h"
 #import "AddBookmarkViewController.h"
 
 @interface AddBookmarkViewController ()
@@ -31,7 +32,7 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     // Create "Cancel" and "Save" buttons
-    self.navigationItem.title = NSLocalizedString(@"Add Bookmark",@"");
+    self.navigationItem.title = CIALBrowserLocalizedString(@"Add Bookmark",@"");
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction) ] autorelease];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveAction) ] autorelease];
     
