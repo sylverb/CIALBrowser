@@ -1,0 +1,19 @@
+/* Browser */
+"OK" = "OK";
+"Cancel" = "キャンセル";
+"Close" = "閉じる";
+"Error" = "エラー";
+"Add bookmark" = "ブックマークに追加";
+"Open with Safari" = "Safariで開く";
+"Mail Link to this Page" = "リンクをメールで送信";
+"Print" = "プリント";
+"Add as Homepage" = "ホーム画面に追加";
+"Open" = "開く";
+"Copy" = "コピー";
+"Failed sending email, please try again..." = "メール送信できませんでした。再度試して下さい。";
+
+/* Bookmarks */
+"Bookmarks" = "ブックマーク";
+"Add Bookmark" = "ブックマークに追加";
+"Edit Bookmark" = "ブックマークの編集";
+
