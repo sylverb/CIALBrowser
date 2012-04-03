@@ -45,6 +45,7 @@
 		46031DA21520BC8100DB9AF7 /* UnpreventableUILongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnpreventableUILongPressGestureRecognizer.m; sourceTree = "<group>"; };
 		46031DA31520BC8100DB9AF7 /* ViewBookmarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewBookmarkViewController.h; sourceTree = "<group>"; };
 		46031DA41520BC8100DB9AF7 /* ViewBookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewBookmarkViewController.m; sourceTree = "<group>"; };
+		4662A295152B1EB100C423BD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4674540015176EEC00638AEC /* CIALBrowserAsModal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CIALBrowserAsModal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4674540415176EEC00638AEC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4674540615176EEC00638AEC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -198,6 +199,7 @@
 			knownRegions = (
 				en,
 				fr,
+				ja,
 			);
 			mainGroup = 467453F515176EEB00638AEC;
 			productRefGroup = 4674540115176EEC00638AEC /* Products */;
@@ -277,6 +279,7 @@
 			children = (
 				F9D1D3891523AEEC00DCF976 /* en */,
 				F9D1D38C1523AEFD00DCF976 /* fr */,
+				4662A295152B1EB100C423BD /* ja */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

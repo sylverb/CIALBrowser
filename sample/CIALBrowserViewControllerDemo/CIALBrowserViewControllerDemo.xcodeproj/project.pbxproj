@@ -42,6 +42,7 @@
 		46031DE51520BCFC00DB9AF7 /* UnpreventableUILongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnpreventableUILongPressGestureRecognizer.m; sourceTree = "<group>"; };
 		46031DE61520BCFC00DB9AF7 /* ViewBookmarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewBookmarkViewController.h; sourceTree = "<group>"; };
 		46031DE71520BCFC00DB9AF7 /* ViewBookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewBookmarkViewController.m; sourceTree = "<group>"; };
+		4662A297152B1F0100C423BD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F945A5531412C2BC0058C6A8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		F98C951714109AF700C9A937 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F99D7AE6152263ED00E73F4E /* CIALBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CIALBrowser.bundle; sourceTree = "<group>"; };
@@ -186,6 +187,7 @@
 			knownRegions = (
 				en,
 				fr,
+				ja,
 			);
 			mainGroup = F9E3C5C11410965400D44684;
 			productRefGroup = F9E3C5CD1410965500D44684 /* Products */;
@@ -237,6 +239,7 @@
 			children = (
 				F99D7B1B1522DCC600E73F4E /* en */,
 				F99D7B1D1522DCD200E73F4E /* fr */,
+				4662A297152B1F0100C423BD /* ja */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
