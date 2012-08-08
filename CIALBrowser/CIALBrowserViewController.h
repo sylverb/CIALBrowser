@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <MessageUI/MessageUI.h>
-#import "AppDelegate.h"
 #import "ViewBookmarkViewController.h"
 #import "AddBookmarkViewController.h"
 
